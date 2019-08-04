@@ -16,6 +16,21 @@ class RecipesController < ApplicationController
   def create
     recipe = Recipe.create(recipe_params)
     redirect_to recipe
+<<<<<<< HEAD
+=======
+  end
+
+  def update
+    recipe = Recipe.find(params[:id])
+    recipe.update(recipe_params)
+    redirect_to recipe
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:title, ingredients_attributes: [:id, :name, :quantity])
+>>>>>>> 3643c27c7cdcd62c08c6c9eb47f5fc4afcb6cc1b
   end
 
   def update
